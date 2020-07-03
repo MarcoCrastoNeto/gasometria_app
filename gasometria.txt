@@ -1,0 +1,13 @@
+Valores Inseridos:
+FiO2: 40.0
+pH: 7.19
+PCO2: 67.0
+PO2: 78.0
+Lactato: 1.6
+Bicarbonato: 25.7
+
+Resultado:
+Contexto de pH: Acidose Respiratória com Compensação Metabólica
+Nível de oxigênio: Hipóxia
+Nível de Lactato: Lactato Normal
+Índice de Oxigenação: 195.0, Indice de Oxigenação Ruim

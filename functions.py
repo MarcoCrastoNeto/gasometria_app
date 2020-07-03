@@ -1,144 +1,144 @@
 
 #* Função abaixo usa o input ph_value para dar o valor ph_meaning
 
-def find_ph_meaning(ph_value):
-    if ph_value > 7.450:
-        ph_meaning = 'PH Alcalótico'
-    elif ph_value < 7.350:
-        ph_meaning = 'PH Acidótico'
+def achar_ph_significado(ph_valor):
+    if ph_valor > 7.450:
+        ph_significado = 'PH Alcalótico'
+    elif ph_valor < 7.350:
+        ph_significado = 'PH Acidótico'
     else:
-        ph_meaning = 'PH Normal'
-    return ph_meaning
+        ph_significado = 'PH Normal'
+    return ph_significado
 
 #* Função abaixo usa o input po2_value para dar o valor po2_meaning.
 
-def find_po2_meaning(po2_value):
-    if po2_value < 80.0:
-        po2_meaning = 'Hipóxia'
-    elif po2_value > 100.0:
-        po2_meaning = 'Hiperóxia'
+def achar_po2_significado(po2_valor):
+    if po2_valor < 80.0:
+        po2_significado = 'Hipóxia'
+    elif po2_valor > 100.0:
+        po2_significado = 'Hiperóxia'
     else:
-        po2_meaning = 'Bom nível de oxigenação'
-    return po2_meaning
+        po2_significado = 'Bom nível de oxigenação'
+    return po2_significado
 
 #* Função abaixo usa os inputs po2_value e fio2_value para dar o valor io + io_meaning.
 
-def find_io_meaning(po2_value, fio2_value):
-    if fio2_value > 1.0:
-        fio2_value = fio2_value * 0.01
-    io_value = po2_value / fio2_value
-    if io_value < 100.0:
-        io_meaning = 'Indice de Oxigenação Péssimo'
-    elif io_value < 200.0:
-        io_meaning = 'Indice de Oxigenação Ruim'
-    elif io_value < 300.0:
-        io_meaning = 'Indice de Oxigenação Moderado'
-    elif io_value >  400.0:
-        io_meaning = 'Indice de Oxigenação Bom'
+def achar_io_significado(po2_valor, fio2_valor):
+    if fio2_valor > 1.0:
+        fio2_valor = fio2_valor * 0.01
+    io_valor = po2_valor / fio2_valor
+    if io_valor < 100.0:
+        io_significado = 'Indice de Oxigenação Péssimo'
+    elif io_valor < 200.0:
+        io_significado = 'Indice de Oxigenação Ruim'
+    elif io_valor < 300.0:
+        io_significado = 'Indice de Oxigenação Moderado'
+    elif io_valor >  400.0:
+        io_significado = 'Indice de Oxigenação Bom'
     else:
-        io_meaning = 'Indice de Oxigenação Mediano'
-    return (str(io_value)) + ', ' + io_meaning
+        io_significado = 'Indice de Oxigenação Mediano'
+    return (str(io_valor)) + ', ' + io_significado
 
 #* Função abaixo usa o input lac_value para dar o valor lac_meaning.
 
-def find_lac_meaning(lac_value):
-    if lac_value > 2.2:
-        lac_meaning = 'Hiperlactatemia'
+def achar_lac_significado(lac_valor):
+    if lac_valor > 2.2:
+        lac_significado = 'Hiperlactatemia'
     else:
-        lac_meaning = 'Lactato Normal'
-    return lac_meaning
+        lac_significado = 'Lactato Normal'
+    return lac_significado
 
 #* Função abaixo usa o input pco2_value para dar o valor pco2_meaning.
 
-def find_pco2_meaning(pco2_value):
-    if pco2_value > 45.0:
-        pco2_meaning = 'Alteração Respiratória Acidótica'
-    elif pco2_value < 35.0:
-        pco2_meaning = 'Alteração Respiratória Alcalótica'
+def achar_pco2_significado(pco2_valor):
+    if pco2_valor > 45.0:
+        pco2_significado = 'Alteração Respiratória Acidótica'
+    elif pco2_valor < 35.0:
+        pco2_significado = 'Alteração Respiratória Alcalótica'
     else:
-        pco2_meaning = 'PCO2 Normal'
-    return pco2_meaning
+        pco2_significado = 'PCO2 Normal'
+    return pco2_significado
 
 #* Função abaixo usa o input hco3_value para dar o valor hco3_meaning.
 
-def find_hco3_meaning(hco3_value):
-    if hco3_value > 26.0:
-        hco3_meaning = 'Alteração Metabólica Alcalótica'
-    elif hco3_value < 22.0:
-        hco3_meaning = 'Alteração Metabólica Acidótica'
+def achar_hco3_significado(hco3_valor):
+    if hco3_valor > 26.0:
+        hco3_significado = 'Alteração Metabólica Alcalótica'
+    elif hco3_valor < 22.0:
+        hco3_significado = 'Alteração Metabólica Acidótica'
     else:
-        hco3_meaning = 'HCO3 Normal'
-    return hco3_meaning
+        hco3_significado = 'HCO3 Normal'
+    return hco3_significado
 
 #* Função abaixo levará os parametros resultantes das funções find_pco2_meaning e find_hco3_meaning, e deverá devolver o parametro acidosis_meaning.
 #TODO Pesquisar algum jeito de identificar o fator principal de acidose e alcalose causador do distúrbio.
 
-def find_acidosis_meaning(pco2_meaning, hco3_meaning, pco2_value, hco3_value):
-    if pco2_meaning == 'Alteração Respiratória Acidótica' and hco3_meaning == 'Alteração Metabólica Acidótica':
+def achar_acidose_significado(pco2_significado, hco3_significado, pco2_valor, hco3_valor):
+    if pco2_significado == 'Alteração Respiratória Acidótica' and hco3_significado == 'Alteração Metabólica Acidótica':
     #TODO Identificar fator principal
-        acidosis_meaning = 'Acidose de Caratér Misto, Correlacionar com Clínica'
-    elif pco2_meaning == 'Alteração Respiratória Acidótica':
-        if hco3_value <= ((((pco2_value - 40) / 10) + 24) + 2) and hco3_value >= ((((pco2_value - 40) / 10) + 24) - 2):
-            acidosis_meaning = 'Acidose Respiratória com Compensação Metabólica'
+        acidose_significado = 'Acidose de Caratér Misto, Correlacionar com Clínica'
+    elif pco2_significado == 'Alteração Respiratória Acidótica':
+        if hco3_valor <= ((((pco2_valor - 40) / 10) + 24) + 2) and hco3_valor >= ((((pco2_valor - 40) / 10) + 24) - 2):
+            acidose_significado = 'Acidose Respiratória com Compensação Metabólica'
         else:
-            acidosis_meaning = 'Acidose Respiratória não Compensada'
-    elif hco3_meaning == 'Alteração Metabólica Acidótica':
-        if pco2_value <= (((1.5 * hco3_value) + 8) + 2) and pco2_value >= (((1.5 * hco3_value) + 8) - 2):
-            acidosis_meaning = 'Acidose Metabólica com Compensação Respiratória'
+            acidose_significado = 'Acidose Respiratória não Compensada'
+    elif hco3_significado == 'Alteração Metabólica Acidótica':
+        if pco2_valor <= (((1.5 * hco3_valor) + 8) + 2) and pco2_valor >= (((1.5 * hco3_valor) + 8) - 2):
+            acidose_significado = 'Acidose Metabólica com Compensação Respiratória'
         else:
-            acidosis_meaning = 'Acidose Metabólica não Compensada'
+            acidose_significado = 'Acidose Metabólica não Compensada'
     else:
-        acidosis_meaning = 'Acidose com Valores de PCO2 e HCO3 nos limites da normalidade'
-    return acidosis_meaning
+        acidose_significado = 'Acidose com Valores de PCO2 e HCO3 nos limites da normalidade'
+    return acidose_significado
 
 #* Função abaixo levará os parametros resultantes das funções find_pco2_meaning e find_hco3_meaning, e deverá devolver o parametro alcalosis_meaning.
 
-def find_alcalosis_meaning(pco2_meaning, hco3_meaning, pco2_value, hco3_value):
-    if pco2_meaning == 'Alteração Respiratória Alcalótica' and hco3_meaning == 'Alteração Metabólica Acidótica':
+def achar_alcalose_significado(pco2_significado, hco3_significado, pco2_valor, hco3_valor):
+    if pco2_significado == 'Alteração Respiratória Alcalótica' and hco3_significado == 'Alteração Metabólica Acidótica':
     #TODO Identificar fator principal
-        alcalosis_meaning = 'Alcalose de Caratér Misto, Correlacionar com Clínica'
-    elif pco2_meaning == 'Alteração Respiratória Alcalótica':
-        if hco3_value <= ((24 - ((40 - pco2_value) / 5)) + 2) and hco3_value >= ((24 - ((40 - pco2_value) / 5)) - 2):
-            alcalosis_meaning = 'Alcalose Respiratória com Compensação Metabólica'
+        alcalose_significado = 'Alcalose de Caratér Misto, Correlacionar com Clínica'
+    elif pco2_significado == 'Alteração Respiratória Alcalótica':
+        if hco3_valor <= ((24 - ((40 - pco2_valor) / 5)) + 2) and hco3_valor >= ((24 - ((40 - pco2_valor) / 5)) - 2):
+            alcalose_significado = 'Alcalose Respiratória com Compensação Metabólica'
         else:
-            alcalosis_meaning = 'Alcalose Respiratória não Compensada'
-    elif hco3_meaning == 'Alteração Metabólica Alcalótica':
-        if pco2_value <= (((0.7 * hco3_value) + 21) + 2) and pco2_value >= (((0.7 * hco3_value) + 21) - 2):
-            alcalosis_meaning = 'Alcalose Metabólica com Compensação Respiratória'
+            alcalose_significado = 'Alcalose Respiratória não Compensada'
+    elif hco3_significado == 'Alteração Metabólica Alcalótica':
+        if pco2_valor <= (((0.7 * hco3_valor) + 21) + 2) and pco2_valor >= (((0.7 * hco3_valor) + 21) - 2):
+            alcalose_significado = 'Alcalose Metabólica com Compensação Respiratória'
         else:
-            alcalosis_meaning = 'Alcalose Metabólica não Compensada'
+            alcalose_significado = 'Alcalose Metabólica não Compensada'
     else:
-        alcalosis_meaning = 'Alcalose com Valores de PCO2 e HCO3 nos limites da normalidade'
-    return alcalosis_meaning
+        alcalose_significado = 'Alcalose com Valores de PCO2 e HCO3 nos limites da normalidade'
+    return alcalose_significado
 
 #TODO Fazer uma função avaliando as possibilidades de pH normal com alterações metabólicas ou respiratórias.
 
-def find_normal_meaning(pco2_meaning, hco3_meaning, pco2_value, hco3_value):
-    if pco2_meaning == 'Alteração Respiratória Acidótica' and hco3_meaning == 'Alteração Metabólica Alcalótica':
+def achar_normal_significado(pco2_significado, hco3_significado, pco2_valor, hco3_valor):
+    if pco2_significado == 'Alteração Respiratória Acidótica' and hco3_significado == 'Alteração Metabólica Alcalótica':
         #TODO Implementar as duas próximas funções!
-        normal_meaning = 'Função ainda não implementada'
-    elif pco2_meaning == 'Alteração Respiratória Alcalótica' and hco3_meaning == 'Alteração Metabólica Acidótica':
-        normal_meaning = 'Função ainda não implementada'
-    elif pco2_meaning == 'Alteração Respiratória Acidótica':
-        if hco3_value <= ((((pco2_value - 40) / 10) + 24) + 2) and hco3_value >= ((((pco2_value - 40) / 10) + 24) - 2):
-            normal_meaning = 'Acidose Respiratória com Compensação Metabólica sem Alteração de PH'
+        normal_significado = 'Função ainda não implementada'
+    elif pco2_significado == 'Alteração Respiratória Alcalótica' and hco3_significado == 'Alteração Metabólica Acidótica':
+        normal_significado = 'Função ainda não implementada'
+    elif pco2_significado == 'Alteração Respiratória Acidótica':
+        if hco3_valor <= ((((pco2_valor - 40) / 10) + 24) + 2) and hco3_valor >= ((((pco2_valor - 40) / 10) + 24) - 2):
+            normal_significado = 'Acidose Respiratória com Compensação Metabólica sem Alteração de PH'
         else:
-            normal_meaning = 'Acidose Respiratória não Compensada sem Alteração de PH'
-    elif pco2_meaning == 'Alteração Respiratória Alcalótica':
-        if hco3_value <= ((24 - ((40 - pco2_value) / 5)) + 2) and hco3_value >= ((24 - ((40 - pco2_value) / 5)) - 2):
-            normal_meaning = 'Alcalose Respiratória com Compensação Metabólica sem Alteração de PH'
+            normal_significado = 'Acidose Respiratória não Compensada sem Alteração de PH'
+    elif pco2_significado == 'Alteração Respiratória Alcalótica':
+        if hco3_valor <= ((24 - ((40 - pco2_valor) / 5)) + 2) and hco3_valor >= ((24 - ((40 - pco2_valor) / 5)) - 2):
+            normal_significado = 'Alcalose Respiratória com Compensação Metabólica sem Alteração de PH'
         else:
-            normal_meaning = 'Alcalose Respiratória não Compensada sem Alteração de PH'
-    elif hco3_meaning == 'Alteração Metabólica Acidótica':
-        if pco2_value <= (((1.5 * hco3_value) + 8) + 2) and pco2_value >= (((1.5 * hco3_value) + 8) - 2):
-            normal_meaning = 'Acidose Metabólica com Compensação Respiratória sem Alteração de PH'
+            normal_significado = 'Alcalose Respiratória não Compensada sem Alteração de PH'
+    elif hco3_significado == 'Alteração Metabólica Acidótica':
+        if pco2_valor <= (((1.5 * hco3_valor) + 8) + 2) and pco2_valor >= (((1.5 * hco3_valor) + 8) - 2):
+            normal_significado = 'Acidose Metabólica com Compensação Respiratória sem Alteração de PH'
         else:
-            normal_meaning = 'Acidose Metabólica não Compensada sem Alteração de PH'
-    elif hco3_meaning == 'Alteração Metabólica Alcalótica':
-        if pco2_value <= (((0.7 * hco3_value) + 21) + 2) and pco2_value >= (((0.7 * hco3_value) + 21) - 2):
-            normal_meaning = 'Alcalose Metabólica com Compensação Respiratória sem Alteração de PH'
+            normal_significado = 'Acidose Metabólica não Compensada sem Alteração de PH'
+    elif hco3_significado == 'Alteração Metabólica Alcalótica':
+        if pco2_valor <= (((0.7 * hco3_valor) + 21) + 2) and pco2_valor >= (((0.7 * hco3_valor) + 21) - 2):
+            normal_significado = 'Alcalose Metabólica com Compensação Respiratória sem Alteração de PH'
         else:
-            normal_meaning = 'Alcalose Metabólica não Compensada sem Alteração de PH'
+            normal_significado = 'Alcalose Metabólica não Compensada sem Alteração de PH'
     else:
-        normal_meaning = 'PH normal, com HCO3 e PCO2 dentro dos limites da normalidade'
-    return normal_meaning
+        normal_significado = 'PH normal, com HCO3 e PCO2 dentro dos limites da normalidade'
+    return normal_significado

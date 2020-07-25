@@ -1,5 +1,5 @@
 Valores Inseridos:
-FiO2: 5.0
+FiO2: 50.0
 pH: 5.0
 PCO2: 5.0
 PO2: 5.0
@@ -10,4 +10,4 @@ Resultado:
 Contexto de pH: Acidose Metabólica não Compensada
 Nível de oxigênio: Hipóxia
 Nível de Lactato: Hiperlactatemia
-Índice de Oxigenação: 100.0, Indice de Oxigenação Ruim
+Índice de Oxigenação: 10.0, Indice de Oxigenação Péssimo
